@@ -16,6 +16,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
+include:
+  - assets
+
 kramdown:
   input: GFM
   hard_wrap: false
