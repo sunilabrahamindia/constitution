@@ -58,7 +58,7 @@ body{
    -------------------------- */
 .site-header {
   background: var(--surface);
-  padding: 1.25rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid var(--soft);
   text-align: center; /* KEY FIX */
 }
@@ -133,7 +133,7 @@ body{
    -------------------------- */
 .site-main {
   margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.0rem;
 }
 
 .page-content {
@@ -190,9 +190,9 @@ pre {
 /* --------------------------
    Headings
    -------------------------- */
-h2 { font-size: 1.35rem; margin: 1rem 0 0.6rem; color: #07243a; }
-h3 { font-size: 1.15rem; margin: 0.9rem 0 0.45rem; color: #083049; }
-h4 { font-size: 1rem; margin: 0.7rem 0 0.35rem; }
+h2 { font-size: 1.35rem; margin: 0.5rem 0 0.4rem; color: #07243a; }
+h3 { font-size: 1.15rem; margin: 0.4rem 0 0.35rem; color: #083049; }
+h4 { font-size: 1rem; margin: 0.3rem 0 0.25rem; }
 
 /* --------------------------
    Tables
@@ -228,7 +228,7 @@ th { background: #f3f7fb; }
    -------------------------- */
 .site-footer {
   text-align: center; /* KEY FIX */
-  padding: 1.25rem 0;
+  padding: 0.5rem 0;
   border-top: 1px solid var(--soft);
   color: var(--muted);
   background: var(--surface);
@@ -238,7 +238,7 @@ th { background: #f3f7fb; }
   margin-top: 0.4rem;
   font-size: 0.92rem;
   color: var(--muted);
-  text-align: center; /* FIX */
+  text-align: center;
 }
 
 /* --------------------------
