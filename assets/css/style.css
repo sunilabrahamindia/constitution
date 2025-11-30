@@ -11,7 +11,7 @@
   --page-bg: #fbfcfd;
   --text: #0f1720;
   --muted: #556072;
-  --accent: #0b66d1;    /* links / accents */
+  --accent: #0b66d1;
   --accent-visited: #084fa8;
   --soft: #e9eef6;
   --surface: #ffffff;
@@ -19,11 +19,10 @@
   --radius: 8px;
   --focus: 3px solid rgba(11,102,209,0.18);
   --max-width: min(84%, 1200px);
-  --content-gap: 1.25rem;
 }
 
 /* --------------------------
-   Base reset & sensible defaults
+   Reset
    -------------------------- */
 *,
 *::before,
@@ -38,16 +37,15 @@ body{
   background: var(--page-bg);
   -webkit-font-smoothing:antialiased;
   line-height: 1.6;
-  -webkit-tap-highlight-color: transparent;
 }
 
-/* Respect reduced motion preference */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  * { animation-duration: 0ms !important; transition-duration: 0ms !important; }
 }
 
 /* --------------------------
-   Page container / wrapper
+   Wrapper (centred layout)
    -------------------------- */
 .wrapper {
   width: var(--max-width);
@@ -56,88 +54,70 @@ body{
 }
 
 /* --------------------------
-   Header (centred content)
+   SITE HEADER (centre-aligned)
    -------------------------- */
 .site-header {
   background: var(--surface);
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--soft);
-  text-align: center;
+  text-align: center; /* KEY FIX */
 }
 
-.site-header .wrapper {
-  display: block; /* ensure full-width wrapper within header */
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 0.5rem;
-}
-
-/* site title */
 .site-title a{
   text-decoration: none;
   color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 700;
-  font-size: 1.75rem; /* desktop */
+  font-size: 2rem;
   line-height: 1.05;
   display: inline-block;
 }
 
-/* subtitle / description (centre) */
+/* Site subtitle / description (centre) */
 .site-subtitle{
-  display: block;
   color: var(--muted);
-  font-size: 0.98rem;
-  margin-top: 0.35rem;
-  max-width: 66ch;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.35;
+  font-size: 1rem;
+  max-width: 70ch;
+  margin: 0.4rem auto 0;
+  line-height: 1.4;
+  text-align: center; /* EXTRA FIX */
 }
 
 /* --------------------------
-   Accessible skip link (hidden but visible on focus)
+   Skip link (accessibility)
    -------------------------- */
 .skip-to-content {
   position: absolute;
   left: -999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
 }
-.skip-to-content:focus,
-.skip-to-content:active {
+.skip-to-content:focus {
   position: fixed;
   left: 1rem;
   top: 1rem;
-  width: auto;
-  height: auto;
   padding: 0.5rem 0.75rem;
   background: var(--accent);
   color: #fff;
-  z-index: 9999;
   border-radius: 6px;
-  text-decoration: none;
-  box-shadow: var(--shadow);
+  z-index: 999;
 }
 
 /* --------------------------
-   Page header (title area) — centered
+   PAGE HEADER (page titles LEFT aligned)
    -------------------------- */
 .page-header {
-  text-align: center;
   margin: 1.5rem 0 1.25rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid transparent;
+  text-align: left; /* KEY FIX */
 }
 
-.page-title{
+.page-title {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.9rem;
   margin: 0;
   color: var(--text);
   line-height: 1.1;
+  text-align: left; /* IMPORTANT FIX */
 }
 
 .page-subtitle {
@@ -145,54 +125,48 @@ body{
   color: var(--muted);
   font-size: 1rem;
   font-style: italic;
+  text-align: left; /* FIX */
 }
 
 /* --------------------------
-   Main content area (left aligned text inside centred wrapper)
+   MAIN CONTENT
    -------------------------- */
 .site-main {
-  /* ensure main content visually separated */
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
 
-/* content box */
 .page-content {
   background: var(--surface);
   padding: 1.4rem;
   border-radius: 10px;
   box-shadow: var(--shadow);
-  color: var(--text);
-  /* Use readable measure for long text */
-  max-width: 100%;
+  text-align: left; /* FIX */
 }
 
-/* Paragraphs and base typography */
 p {
   margin: 0 0 1rem 0;
-  font-size: 1.03rem;
+  font-size: 1.05rem;
   color: var(--text);
-  text-align: left; /* readable */
 }
 
-/* Links */
+/* --------------------------
+   Links
+   -------------------------- */
 a {
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 a:visited { color: var(--accent-visited); }
-a:focus { outline: var(--focus); outline-offset: 3px; border-radius: 4px; }
+a:focus-visible { outline: var(--focus); }
 
-/* Emphasis */
-strong { font-weight: 700; }
-em { font-style: italic; }
-
-/* Lists */
+/* --------------------------
+   Lists & quotes
+   -------------------------- */
 ul, ol { margin: 0 0 1rem 1.35rem; }
 li { margin: 0.35rem 0; }
 
-/* Blockquote */
 blockquote {
   margin: 0 0 1rem 0;
   padding: 0.9rem 1rem;
@@ -202,17 +176,15 @@ blockquote {
   font-style: italic;
 }
 
-/* Code / pre */
-code, pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
-}
+/* --------------------------
+   Code / Pre
+   -------------------------- */
 pre {
-  background: #0f1720; color: #e6eef8;
+  background: #0f1720;
+  color: #e6eef8;
   padding: 0.9rem;
   border-radius: 6px;
-  overflow: auto;
-  font-size: 0.9rem;
-  margin: 1rem 0;
+  overflow-x: auto;
 }
 
 /* --------------------------
@@ -222,28 +194,23 @@ h2 { font-size: 1.35rem; margin: 1rem 0 0.6rem; color: #07243a; }
 h3 { font-size: 1.15rem; margin: 0.9rem 0 0.45rem; color: #083049; }
 h4 { font-size: 1rem; margin: 0.7rem 0 0.35rem; }
 
-/* small caption */
-figcaption { color: var(--muted); font-size: 0.95rem; text-align: center; margin-top: 0.35rem; }
-
 /* --------------------------
-   Tables (responsive)
+   Tables
    -------------------------- */
-.table-wrap { overflow-x: auto; border-radius: 8px; background: var(--surface); padding: 0.1rem; }
+.table-wrap { overflow-x: auto; }
 table {
   width: 100%;
   border-collapse: collapse;
-  border-spacing: 0;
   margin: 1rem 0;
 }
 th, td {
   padding: 0.6rem 0.9rem;
   border-bottom: 1px solid #e9eef6;
-  text-align: left;
 }
-th { font-weight: 700; background: #f3f7fb; }
+th { background: #f3f7fb; }
 
 /* --------------------------
-   Buttons & small utilities
+   Buttons
    -------------------------- */
 .btn {
   display: inline-block;
@@ -253,66 +220,46 @@ th { font-weight: 700; background: #f3f7fb; }
   color: #fff;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.95rem;
 }
-.btn:hover { filter: brightness(0.98); transform: translateY(-1px); }
-.btn:focus { outline: var(--focus); outline-offset: 3px; }
+.btn:hover { filter: brightness(0.97); }
 
 /* --------------------------
-   Footer (centred)
+   FOOTER (centre aligned)
    -------------------------- */
 .site-footer {
-  text-align: center;
+  text-align: center; /* KEY FIX */
   padding: 1.25rem 0;
   border-top: 1px solid var(--soft);
   color: var(--muted);
-  font-size: 0.95rem;
   background: var(--surface);
 }
 
-/* small fine-print in footer */
-.site-footer .footer-note { color: var(--muted); font-size: 0.92rem; margin-top: 0.35rem; }
+.site-footer .footer-note {
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  text-align: center; /* FIX */
+}
 
 /* --------------------------
-   Focus visibility for keyboard users
+   Responsive
    -------------------------- */
-:focus { outline: none; }
-:focus-visible { outline: var(--focus); outline-offset: 3px; border-radius: 3px; }
-
-/* --------------------------
-   Responsive rules
-   -------------------------- */
-@media (min-width: 821px) {
-  /* increase title size on large screens */
-  .site-title a { font-size: 2.25rem; }
+@media (min-width: 820px){
+  .site-title a { font-size: 2.3rem; }
   .page-title { font-size: 2.15rem; }
-  .page-content { padding: 1.75rem; }
-  :root { --content-gap: 1.5rem; }
 }
 
-/* narrower phones */
-@media (max-width: 480px) {
-  .site-title a { font-size: 1.45rem; }
-  .page-title { font-size: 1.45rem; }
-  .page-subtitle { font-size: 0.95rem; }
-  .wrapper { padding: 0.75rem; }
-  .page-content { padding: 1rem; border-radius: 6px; }
-  pre { font-size: 0.85rem; }
-  th, td { padding: 0.5rem 0.6rem; }
+@media (max-width: 480px){
+  .wrapper { padding: 0.8rem; }
+  .site-title a { font-size: 1.55rem; }
+  .page-title { font-size: 1.55rem; }
+  .page-content { padding: 1rem; }
 }
 
 /* --------------------------
-   Small helpers (utility classes)
-   -------------------------- */
-.kv { display:flex; gap:0.6rem; align-items:flex-start; }
-.note { background:#fff6e6; padding:0.6rem 0.9rem; border-radius:6px; color:#5a4b2a; }
-.sep { height:1px; background:#eef6fb; margin:1.25rem 0; }
-
-/* --------------------------
-   Print styles
+   Print
    -------------------------- */
 @media print {
-  body { background: #fff; color: #000; }
-  .site-header, .site-footer, .skip-to-content { display: none; }
-  .page-content { box-shadow: none; padding: 0; }
+  .site-header, .site-footer { display:none; }
+  .page-content { box-shadow:none; padding:0; }
 }
