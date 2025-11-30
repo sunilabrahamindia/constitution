@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  {% seo %}
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="wrapper">
+      <h1 class="site-title">
+        <a href="/">{{ site.title }}</a>
+      </h1>
+      <p class="site-subtitle">Part of the Sunil Abraham Project</p>
+    </div>
+  </header>
+
+  <main class="site-main" id="main-content" role="main">
+    <div class="wrapper">
+
+      {% if page.title %}
+      <header class="page-header">
+        <h1 class="page-title">{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <p class="page-subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+      </header>
+      {% endif %}
+
+      <article class="page-content">
+        {{ content }}
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrapper">
+      <p>&copy; {{ site.time | date: "%Y" }} Constitution of India Project</p>
+<p class="footer-note">
+  A tribute to the Constitution of India by <a href="https://www.sunilabraham.in">TSAP</a>
+</p>
+    </div>
+  </footer>
+
+</body>
+</html>
