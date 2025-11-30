@@ -1,0 +1,91 @@
+<div id="top-access-bar">
+  <button id="font-dec" aria-label="Decrease font size">A−</button>
+  <button id="font-inc" aria-label="Increase font size">A+</button>
+  <button id="dark-mode-toggle" aria-label="Toggle dark mode">Dark</button>
+  <button id="contrast-toggle" aria-label="Toggle high contrast">Contrast</button>
+  <button id="motion-toggle" aria-label="Toggle reduced motion">Motion</button>
+</div>
+
+<style>
+  #top-access-bar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #f4f4f4;
+    padding: 6px 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 6px;
+    z-index: 9999;
+    font-size: 14px;
+  }
+
+  #top-access-bar button {
+    padding: 4px 8px;
+    border: 1px solid #bbb;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  #top-access-bar button:focus {
+    outline: 2px solid #005fcc;
+    outline-offset: 2px;
+  }
+
+  /* Dark mode */
+  html.dark-mode {
+    background: #111;
+    color: #eee;
+  }
+
+  html.dark-mode a {
+    color: #9cd3ff;
+  }
+
+  /* High contrast */
+  html.high-contrast {
+    background: black !important;
+    color: yellow !important;
+  }
+
+  html.high-contrast a {
+    color: orange !important;
+  }
+
+  /* Reduced motion */
+  html.reduced-motion * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+</style>
+
+<script>
+  (function () {
+    let baseSize = 100;
+
+    document.getElementById('font-inc').addEventListener('click', function () {
+      baseSize = Math.min(baseSize + 10, 200);
+      document.documentElement.style.fontSize = baseSize + '%';
+    });
+
+    document.getElementById('font-dec').addEventListener('click', function () {
+      baseSize = Math.max(baseSize - 10, 60);
+      document.documentElement.style.fontSize = baseSize + '%';
+    });
+
+    document.getElementById('dark-mode-toggle').addEventListener('click', function () {
+      document.documentElement.classList.toggle('dark-mode');
+    });
+
+    document.getElementById('contrast-toggle').addEventListener('click', function () {
+      document.documentElement.classList.toggle('high-contrast');
+    });
+
+    document.getElementById('motion-toggle').addEventListener('click', function () {
+      document.documentElement.classList.toggle('reduced-motion');
+    });
+  })();
+</script>
