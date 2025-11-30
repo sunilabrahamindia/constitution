@@ -57,7 +57,16 @@ body{
    SITE HEADER — Elegant, Institutional
    =========================================== */
 .site-header {
-  background: var(--surface);
+  background:
+  linear-gradient(
+    to right,
+    rgba(255, 153, 51, 0.10) 0%,
+    rgba(255, 153, 51, 0.10) 33.33%,
+    rgba(255, 255, 255, 0.10) 33.33%,
+    rgba(255, 255, 255, 0.10) 66.66%,
+    rgba(19, 136, 8, 0.10) 66.66%,
+    rgba(19, 136, 8, 0.10) 100%
+  );
   padding: 1.1rem 0 1.2rem;
   border-bottom: 1px solid var(--soft);
   text-align: center;
