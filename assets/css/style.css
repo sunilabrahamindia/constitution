@@ -68,7 +68,6 @@ a:hover {
   background: white;
   border-bottom: 1px solid #e3e3e3;
   padding: 2.5rem 0 2rem;
-  text-align: center;
 }
 
 .site-title a {
@@ -88,8 +87,8 @@ a:hover {
 --------------------------------- */
 
 .page-header {
-  margin: 2rem 0 2.5rem;
-  padding-bottom: 1.5rem;
+  margin: 1rem 0 1.5rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid #dcdcdc;
 }
 
@@ -110,7 +109,7 @@ a:hover {
 
 .page-content {
   background: #ffffff;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   margin-bottom: 3rem;
@@ -171,15 +170,15 @@ th {
 @media (max-width: 768px) {
 
   .site-title a {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .page-title {
-    font-size: 1.75rem;
+    font-size: 1.55rem;
   }
 
   .page-content {
-    padding: 1.4rem;
+    padding: 0.5rem;
   }
 }
 
@@ -190,6 +189,6 @@ th {
   }
 
   .page-content {
-    padding: 1.2rem;
+    padding: 0.5rem;
   }
 }
