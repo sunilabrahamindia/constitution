@@ -1,4 +1,4 @@
-# Constitution of India Project
+# The Constitution of India Project
 
 This repository hosts the work for ``constitution.sunilabraham.in``. It presents the Constitution of India in a structured, article-wise format, supported by background notes, cross-references, historical context, and commentary. The aim is to make the Constitution easier to explore, study, and cite, while keeping the official text as the primary reference.
 
