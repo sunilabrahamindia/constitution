@@ -5,8 +5,6 @@ permalink: /
 created: 2025-11-30
 ---
 
-# The Constitution of India Project
-
 Welcome to the working edition of the Constitution of India Project. This site presents the Constitution in a clear, article-wise format, supported by notes, references, and historical context. The aim is to make the text easier to read and navigate while keeping the official version as the primary source.
 
 This project is part of the wider Sunil Abraham Project, which brings together research, documentation, and public resources. The Constitution section here is still in its early stages, and the structure will grow as articles, parts, schedules, and commentary are added.
