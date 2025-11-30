@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Constitution of India"
 permalink: /
 created: 2025-11-30
