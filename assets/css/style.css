@@ -65,6 +65,32 @@ body{
   z-index: 1; /* ensures no conflict with top-access-bar */
 }
 
+/* Ashoka Chakra watermark behind title + subtitle */
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/1/17/Ashoka_Chakra.svg")
+              center 8px / 180px no-repeat;
+  opacity: 0.06;
+  filter: grayscale(100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep text above the watermark */
+.site-title,
+.site-subtitle {
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark mode watermark */
+html.dark-mode .site-header::before {
+  opacity: 0.12;
+  filter: brightness(1.4) grayscale(100%);
+}
+
 /* Title Styling */
 .site-title a{
   text-decoration: none;
