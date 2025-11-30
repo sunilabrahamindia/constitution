@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Constitution of India"
+title: "Home"
 permalink: /
 created: 2025-11-30
 ---
