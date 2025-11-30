@@ -145,7 +145,7 @@ html.dark-mode .site-subtitle{
    PAGE HEADER (page titles LEFT aligned)
    -------------------------- */
 .page-header {
-  margin: 1.5rem 0 1.25rem;
+  margin: 0.5rem 0 1.25rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid transparent;
   text-align: left; /* KEY FIX */
