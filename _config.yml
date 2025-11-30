@@ -1,0 +1,21 @@
+title: "Constitution of India Project"
+description: "A structured exploration of the Constitution of India with commentary and references."
+url: "https://constitution.sunilabraham.in"
+
+markdown: kramdown
+permalink: pretty
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+kramdown:
+  input: GFM
+  hard_wrap: false
