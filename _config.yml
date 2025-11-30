@@ -4,7 +4,7 @@ url: "https://constitution.sunilabraham.in"
 
 markdown: kramdown
 permalink: pretty
-theme: minima
+theme: null
 
 plugins:
   - jekyll-feed
