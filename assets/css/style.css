@@ -53,34 +53,74 @@ body{
   padding: 1.25rem;
 }
 
-/* --------------------------
-   SITE HEADER (centre-aligned)
-   -------------------------- */
+/* ===========================================
+   SITE HEADER — Elegant, Institutional
+   =========================================== */
 .site-header {
   background: var(--surface);
-  padding: 0.5rem 0;
+  padding: 1.1rem 0 1.2rem;
   border-bottom: 1px solid var(--soft);
-  text-align: center; /* KEY FIX */
+  text-align: center;
+  position: relative;
+  z-index: 1; /* ensures no conflict with top-access-bar */
 }
 
+/* Title Styling */
 .site-title a{
   text-decoration: none;
   color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 2.2rem;
   line-height: 1.05;
   display: inline-block;
+
+  /* Subtle lift + clarity */
+  letter-spacing: -0.3px;
+  text-rendering: optimizeLegibility;
 }
 
-/* Site subtitle / description (centre) */
+/* Title hover: dignified, not flashy */
+.site-title a:hover{
+  color: var(--accent);
+  transition: color 0.25s ease;
+}
+
+/* ===========================================
+   Site Description / Subtitle — Refined
+   =========================================== */
 .site-subtitle{
   color: var(--muted);
-  font-size: 1rem;
-  max-width: 70ch;
-  margin: 0.4rem auto 0;
-  line-height: 1.4;
-  text-align: center; /* EXTRA FIX */
+  font-size: 1.05rem;
+  max-width: 75ch;
+  margin: 0.55rem auto 0;
+  line-height: 1.48;
+  text-align: center;
+
+  /* Subtle visual refinement */
+  letter-spacing: 0.25px;
+  opacity: 0.96;
+
+  /* Very soft gradient for sophistication */
+  background: linear-gradient(to bottom, var(--muted), #606b7c);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Dark mode additions: ensures beauty in night mode */
+html.dark-mode .site-title a {
+  color: #eaf1f9;
+}
+
+html.dark-mode .site-title a:hover{
+  color: #9cc9ff;
+}
+
+html.dark-mode .site-subtitle{
+  background: linear-gradient(to bottom, #bcc4d2, #d5dae2);
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 1;
 }
 
 /* --------------------------
