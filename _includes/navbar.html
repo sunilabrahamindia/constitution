@@ -104,33 +104,105 @@
   cursor: pointer;
 }
 
+/* ===========================================
+   MOBILE NAVBAR — Constitution Edition
+   Elegant • Minimal • Institutional
+   =========================================== */
 @media (max-width: 720px) {
+
+  /* Toggle button — full width */
   .nav-toggle {
-    display: inline-block;
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    border: 1px solid var(--soft);
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    position: relative;
   }
 
+  /* Arrow */
+  .nav-toggle[aria-expanded="false"]::after {
+    content: "▾";
+    position: absolute;
+    right: 1rem;
+  }
+  .nav-toggle[aria-expanded="true"]::after {
+    content: "▴";
+    position: absolute;
+    right: 1rem;
+  }
+
+  /* Dropdown container */
   .nav-menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 0;
-    margin-top: 0.5rem;
+    margin-top: 0.45rem;
     background: var(--surface);
     border: 1px solid var(--soft);
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
+    padding: 0;
+
+    /* animation */
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.2s ease;
   }
 
+  /* When open */
   .nav-menu.open {
-    display: flex;
+    max-height: 500px;
+    opacity: 1;
+    box-shadow: var(--shadow);
   }
 
+  /* Items */
   .nav-menu li a {
-    padding: 0.7rem 1rem;
+    padding: 0.85rem 1.1rem;
     border-bottom: 1px solid var(--soft);
+    background: var(--surface);
+    font-size: 0.95rem;
+    border-radius: 0;
+    margin: 0;
   }
 
   .nav-menu li:last-child a {
     border-bottom: none;
+  }
+
+  /* Tap feedback */
+  .nav-menu li a:active {
+    background: #f0f3f7;
+  }
+
+  /* Dark mode version */
+  html.dark-mode .nav-toggle {
+    background: #0f1720;
+    color: #e7edf5;
+    border-color: #2a3542;
+  }
+
+  html.dark-mode .nav-menu {
+    background: #0f1720;
+    border-color: #2a3542;
+  }
+
+  html.dark-mode .nav-menu li a {
+    background: #0f1720;
+    color: #e7edf5;
+    border-color: #2a3542;
+  }
+
+  html.dark-mode .nav-menu li a:active {
+    background: #1a2230;
   }
 }
 
