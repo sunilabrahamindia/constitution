@@ -44,8 +44,6 @@ Some Articles were added later, or use an extended numbering format. They are pl
 - [Article 371I](/articles/371i/)
 - [Article 371J](/articles/371j/)
 
----
-
 ### About this index
 
 Additional Articles will be added here as the project grows. Each Article page will eventually include the text of the provision, its amendment history, related Parts and Chapters, and cross-references to other Articles and Schedules.
