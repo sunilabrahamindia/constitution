@@ -1,0 +1,141 @@
+<nav class="nav-main" aria-label="Primary Navigation">
+  <div class="nav-wrapper">
+
+    <!-- Mobile toggle -->
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+      ☰ Menu
+    </button>
+
+    <!-- Menu items -->
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="/preamble/">Preamble</a></li>
+      <li><a href="/parts/">Parts</a></li>
+      <li><a href="/articles/">Articles</a></li>
+      <li><a href="/schedules/">Schedules</a></li>
+      <li><a href="/amendments/">Amendments</a></li>
+     <!-- <li><a href="/full/">Full Constitution</a></li> -->
+    </ul>
+
+  </div>
+</nav>
+
+<style>
+/* ===========================================
+   NAVIGATION BAR — Elegant & Responsive
+   Self-contained CSS for the navbar include
+   =========================================== */
+
+.nav-main {
+  background: var(--surface);
+  border-bottom: 1px solid var(--soft);
+  position: sticky;
+  top: 68px; /* stays below top accessibility bar */
+  z-index: 50;
+}
+
+.nav-wrapper {
+  width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Desktop tabs */
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 0.35rem 0.55rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-menu li a:hover {
+  background: var(--soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Mobile toggle */
+.nav-toggle {
+  display: none;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* ===========================================
+   MOBILE DROPDOWN
+   =========================================== */
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--soft);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-menu li a {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--soft);
+  }
+
+  .nav-menu li:last-child a {
+    border-bottom: none;
+  }
+}
+
+/* Dark mode support */
+html.dark-mode .nav-main {
+  background: #0f1720;
+  border-bottom: 1px solid #2a3542;
+}
+
+html.dark-mode .nav-menu li a {
+  color: #e7edf5;
+}
+
+html.dark-mode .nav-menu li a:hover {
+  background: #1a2230;
+}
+</style>
+
+<script>
+// Mobile dropdown toggle
+const navBtn = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+if (navBtn) {
+  navBtn.addEventListener('click', function () {
+    const expanded = navBtn.getAttribute('aria-expanded') === 'true';
+    navBtn.setAttribute('aria-expanded', !expanded);
+    navMenu.classList.toggle('open');
+  });
+}
+</script>
