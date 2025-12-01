@@ -2,7 +2,7 @@
 layout: default
 title: "Parts of the Constitution of India"
 description: "An index of all Parts of the Constitution of India, arranged in numerical order."
-permalink: /constitution/parts/
+permalink: /parts/
 created: 2025-11-30
 ---
 
@@ -11,6 +11,8 @@ created: 2025-11-30
 The Constitution of India is organised into a series of Parts. Each Part deals with a broad area of constitutional governance, such as citizenship, fundamental rights, federal institutions, state relations, or emergency provisions. This index lists the Parts in numerical order and links to their dedicated pages within the project.
 
 ### Index of Parts
+
+***This is under construction, and URLs won't work at this moment***
 
 - [Part I](/constitution/parts/1/) — The Union and Its Territory  
 - [Part II](/constitution/parts/2/) — Citizenship  
