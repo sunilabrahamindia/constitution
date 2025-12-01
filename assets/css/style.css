@@ -100,6 +100,32 @@ html.dark-mode .site-header::before {
   filter: brightness(1.4) grayscale(100%);
 }
 
+/* =========================================================
+   FIX: Dark mode page titles (Constitution Project)
+   ========================================================= */
+
+html.dark-mode .page-content h1,
+html.dark-mode main h1,
+html.dark-mode h1 {
+  color: #e7edf5 !important;
+  border-color: #2a3542 !important;
+}
+
+/* Fix H2–H6 also */
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5,
+html.dark-mode h6 {
+  color: #e7edf5 !important;
+  border-color: #2a3542 !important;
+}
+
+/* Page title underline */
+html.dark-mode .page-content h1 {
+  border-bottom-color: #2a3542 !important;
+}
+
 /* Title Styling */
 .site-title a{
   text-decoration: none;
@@ -337,4 +363,15 @@ th { background: #f3f7fb; }
 @media print {
   .site-header, .site-footer { display:none; }
   .page-content { box-shadow:none; padding:0; }
+}
+
+/* =========================================================
+   FINAL OVERRIDE — Dark mode page title fix
+   ========================================================= */
+
+html.dark-mode .page-title,
+html.dark-mode .page-header h1,
+html.dark-mode h1.page-title {
+  color: #e7edf5 !important;
+  border-bottom-color: #2a3542 !important;
 }
