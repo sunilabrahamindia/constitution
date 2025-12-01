@@ -8,12 +8,13 @@
 
     <!-- Menu items -->
     <ul id="nav-menu" class="nav-menu">
-      <li><a href="/preamble/">Preamble</a></li>
-      <li><a href="/parts/">Parts</a></li>
-      <li><a href="/articles/">Articles</a></li>
-      <li><a href="/schedules/">Schedules</a></li>
-      <li><a href="/amendments/">Amendments</a></li>
-     <!-- <li><a href="/full/">Full Constitution</a></li> -->
+<li><a href="/" class="{% if page.url == "/" %}active{% endif %}">Home</a></li>
+<!--<li><a href="/preamble/" class="{% if page.url == "/preamble/" %}active{% endif %}">Preamble</a></li> -->
+<li><a href="/parts/" class="{% if page.url contains '/parts/' %}active{% endif %}">Parts</a></li>
+<li><a href="/articles/" class="{% if page.url contains '/articles/' %}active{% endif %}">Articles</a></li>
+<li><a href="/schedules/" class="{% if page.url contains '/schedules/' %}active{% endif %}">Schedules</a></li>
+<li><a href="/amendments/" class="{% if page.url contains '/amendments/' %}active{% endif %}">Amendments</a></li>
+<!-- <li><a href="/full/" class="{% if page.url == "/full/" %}active{% endif %}">Full Constitution</a></li> -->
     </ul>
 
   </div>
@@ -22,14 +23,13 @@
 <style>
 /* ===========================================
    NAVIGATION BAR — Elegant & Responsive
-   Self-contained CSS for the navbar include
    =========================================== */
 
 .nav-main {
   background: var(--surface);
   border-bottom: 1px solid var(--soft);
   position: sticky;
-  top: 68px; /* stays below top accessibility bar */
+  top: 68px;
   z-index: 50;
 }
 
@@ -57,16 +57,42 @@
   padding: 0.35rem 0.55rem;
   border-radius: 4px;
   font-weight: 500;
+  position: relative; /* needed for underline */
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .nav-menu li a:hover {
   background: var(--soft);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
-/* Mobile toggle */
+/* Underline container, animation */
+.nav-menu li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+/* Hover underline */
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+.nav-menu li a.active {
+  color: var(--accent);
+}
+.nav-menu li a.active::after {
+  width: 100%;
+}
+
+/* ===========================================
+   MOBILE DROPDOWN
+   =========================================== */
 .nav-toggle {
   display: none;
   background: var(--accent);
@@ -78,9 +104,6 @@
   cursor: pointer;
 }
 
-/* ===========================================
-   MOBILE DROPDOWN
-   =========================================== */
 @media (max-width: 720px) {
   .nav-toggle {
     display: inline-block;
@@ -111,7 +134,9 @@
   }
 }
 
-/* Dark mode support */
+/* ===========================================
+   DARK MODE
+   =========================================== */
 html.dark-mode .nav-main {
   background: #0f1720;
   border-bottom: 1px solid #2a3542;
@@ -124,6 +149,20 @@ html.dark-mode .nav-menu li a {
 html.dark-mode .nav-menu li a:hover {
   background: #1a2230;
 }
+
+html.dark-mode .nav-menu li a::after {
+  background: #9cc9ff;
+}
+
+html.dark-mode .nav-menu li a.active {
+  color: #9cc9ff;
+}
+
+html.dark-mode .nav-menu li a:hover::after {
+  width: 100%;
+  background: #9cc9ff;
+}
+
 </style>
 
 <script>
