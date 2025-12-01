@@ -18,7 +18,7 @@
   --shadow: 0 6px 20px rgba(8,20,40,0.06);
   --radius: 8px;
   --focus: 3px solid rgba(11,102,209,0.18);
-  --max-width: min(84%, 1200px);
+  --max-width: min(90%, 1200px);
 }
 
 /* --------------------------
