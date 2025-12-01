@@ -7,15 +7,16 @@
     </button>
 
     <!-- Menu items -->
-    <ul id="nav-menu" class="nav-menu">
-<li><a href="/" class="{% if page.url == "/" %}active{% endif %}">Home</a></li>
-<!--<li><a href="/preamble/" class="{% if page.url == "/preamble/" %}active{% endif %}">Preamble</a></li> -->
-<li><a href="/parts/" class="{% if page.url contains '/parts/' %}active{% endif %}">Parts</a></li>
-<li><a href="/articles/" class="{% if page.url contains '/articles/' %}active{% endif %}">Articles</a></li>
-<li><a href="/schedules/" class="{% if page.url contains '/schedules/' %}active{% endif %}">Schedules</a></li>
-<li><a href="/amendments/" class="{% if page.url contains '/amendments/' %}active{% endif %}">Amendments</a></li>
-<!-- <li><a href="/full/" class="{% if page.url == "/full/" %}active{% endif %}">Full Constitution</a></li> -->
-    </ul>
+<ul id="nav-menu" class="nav-menu">
+
+  <li><a href="/" class="{% if page.url == "/" %}active{% endif %}">🏠 Home</a></li>
+  <!--<li><a href="/preamble/" class="{% if page.url == "/preamble/" %}active{% endif %}">Preamble</a></li> -->
+  <li><a href="/parts/" class="{% if page.url contains '/parts/' %}active{% endif %}">🏛️ Parts</a></li>
+  <li><a href="/articles/" class="{% if page.url contains '/articles/' %}active{% endif %}">📜 Articles</a></li>
+  <li><a href="/schedules/" class="{% if page.url contains '/schedules/' %}active{% endif %}">📚 Schedules</a></li>
+  <li><a href="/amendments/" class="{% if page.url contains '/amendments/' %}active{% endif %}">⚖️ Amendments</a></li>
+  <!-- <li><a href="/full/" class="{% if page.url == "/full/" %}active{% endif %}">Full Constitution</a></li> -->
+</ul>
 
   </div>
 </nav>
