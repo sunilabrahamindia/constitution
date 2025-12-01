@@ -29,7 +29,7 @@
   background: var(--surface);
   border-bottom: 1px solid var(--soft);
   position: sticky;
-  top: 32px;
+  top: 32px; /* below accessibility bar */
   z-index: 50;
 }
 
@@ -57,7 +57,7 @@
   padding: 0.35rem 0.55rem;
   border-radius: 4px;
   font-weight: 500;
-  position: relative; /* needed for underline */
+  position: relative;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
@@ -65,7 +65,7 @@
   background: var(--soft);
 }
 
-/* Underline container, animation */
+/* Underline animation */
 .nav-menu li a::after {
   content: "";
   position: absolute;
@@ -77,40 +77,25 @@
   transition: width 0.25s ease;
 }
 
-/* Hover underline */
-.nav-menu li a:hover::after {
-  width: 100%;
-}
-
-/* Active link */
-.nav-menu li a.active {
-  color: var(--accent);
-}
-.nav-menu li a.active::after {
-  width: 100%;
-}
-
-/* ===========================================
-   MOBILE DROPDOWN
-   =========================================== */
-.nav-toggle {
-  display: none;
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  padding: 0.45rem 0.7rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
+.nav-menu li a:hover::after { width: 100%; }
+.nav-menu li a.active { color: var(--accent); }
+.nav-menu li a.active::after { width: 100%; }
 
 /* ===========================================
    MOBILE NAVBAR — Constitution Edition
-   Elegant • Minimal • Institutional
    =========================================== */
+
+.nav-toggle {
+  display: none;
+}
+
 @media (max-width: 720px) {
 
-  /* Toggle button — full width */
+  .nav-wrapper {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+  }
+
   .nav-toggle {
     display: block;
     width: 100%;
@@ -121,69 +106,65 @@
     font-weight: 600;
     text-align: left;
     border: 1px solid var(--soft);
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.25px;
     position: relative;
   }
 
-  /* Arrow */
-  .nav-toggle[aria-expanded="false"]::after {
-    content: "▾";
-    position: absolute;
-    right: 1rem;
-  }
+  .nav-toggle[aria-expanded="false"]::after,
   .nav-toggle[aria-expanded="true"]::after {
-    content: "▴";
     position: absolute;
     right: 1rem;
   }
+  .nav-toggle[aria-expanded="false"]::after { content: "▾"; }
+  .nav-toggle[aria-expanded="true"]::after  { content: "▴"; }
 
-  /* Dropdown container */
   .nav-menu {
-    display: flex;
     flex-direction: column;
-    gap: 0;
-    margin-top: 0.45rem;
+    margin-top: 0.5rem;
     background: var(--surface);
     border: 1px solid var(--soft);
-    border-radius: 6px;
-    overflow: hidden;
+    border-radius: 8px;
     padding: 0;
+    box-sizing: border-box;
 
     /* animation */
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.35s ease, opacity 0.2s ease;
+    overflow: hidden;
+    transition: max-height 0.36s ease, opacity 0.2s ease;
+    width: 100%;
   }
 
-  /* When open */
   .nav-menu.open {
-    max-height: 500px;
+    max-height: 800px;
     opacity: 1;
     box-shadow: var(--shadow);
   }
 
-  /* Items */
   .nav-menu li a {
-    padding: 0.85rem 1.1rem;
+    display: block;
+    padding: 0.85rem 1.05rem;
+    font-size: 1rem;
     border-bottom: 1px solid var(--soft);
     background: var(--surface);
-    font-size: 0.95rem;
-    border-radius: 0;
-    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
-  .nav-menu li:last-child a {
-    border-bottom: none;
-  }
+  .nav-menu li:last-child a { border-bottom: none; }
 
-  /* Tap feedback */
   .nav-menu li a:active {
     background: #f0f3f7;
   }
 
-  /* Dark mode version */
+  .nav-menu li a::after {
+    bottom: 6px;
+  }
+
+  /* Dark mode */
   html.dark-mode .nav-toggle {
     background: #0f1720;
     color: #e7edf5;
@@ -207,7 +188,7 @@
 }
 
 /* ===========================================
-   DARK MODE
+   DESKTOP DARK MODE
    =========================================== */
 html.dark-mode .nav-main {
   background: #0f1720;
@@ -234,7 +215,6 @@ html.dark-mode .nav-menu li a:hover::after {
   width: 100%;
   background: #9cc9ff;
 }
-
 </style>
 
 <script>
