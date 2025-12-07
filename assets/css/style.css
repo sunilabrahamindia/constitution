@@ -375,3 +375,36 @@ html.dark-mode h1.page-title {
   color: #e7edf5 !important;
   border-bottom-color: #2a3542 !important;
 }
+
+/* =========================================================
+   SUBTITLE FIX — consistent in light, dark & ND modes
+   ========================================================= */
+
+/* Base subtitle variables */
+:root {
+  --subtitle-color: #556072;
+}
+
+/* Apply subtitle colour */
+.page-subtitle {
+  color: var(--subtitle-color);
+  font-size: 1.05rem;
+  font-style: italic;
+  margin-top: 0.35rem;
+  letter-spacing: 0.2px;
+}
+
+/* Light mode — subtle muted grey */
+html:not(.dark-mode):not(.nd-mode) {
+  --subtitle-color: #556072;
+}
+
+/* Dark mode — brighter grey for readability */
+html.dark-mode {
+  --subtitle-color: #d2d9e4;
+}
+
+/* Neurodivergent mode — relies on currentColor for clarity */
+html.nd-mode {
+  --subtitle-color: currentColor;
+}
